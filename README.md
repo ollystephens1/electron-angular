@@ -1,4 +1,4 @@
-# ElectronApp
+# ElectronApp - Angular 6 | Electron | Bulma CSS
 
 An Angular 6 desktop application. Cool right?
 
