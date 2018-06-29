@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Mobile App",
+    "description":
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sodales ut eu sem integer. Commodo quis imperdiet massa tincidunt nunc pulvinar. Mauris a diam maecenas sed.",
+    "client": "Mubadala",
+    "users": []
+  },
+  {
+    "name": "CPMS App",
+    "description":
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sodales ut eu sem integer. Commodo quis imperdiet massa tincidunt nunc pulvinar. Mauris a diam maecenas sed.",
+    "client": "ADNOC",
+    "users": []
+  }
+]

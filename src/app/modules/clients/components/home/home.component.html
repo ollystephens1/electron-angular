@@ -1,0 +1,8 @@
+<section class="section">
+  <div class="container">
+    <div class="column">
+      <h1 class="title">My clients</h1>
+      <client-card *ngFor="let client of clients$ | async" [client]="client"></client-card>
+    </div>
+  </div>
+</section>

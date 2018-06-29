@@ -1,0 +1,18 @@
+<article class="media">
+  <div class="media-left">
+    <figure class="image is-64x64">
+      <img src="assets/img/users/{{ activity.avatar }}" [alt]="activity.user">
+    </figure>
+  </div>
+  <div class="media-content">
+    <div class="content">
+      <p>
+        <strong>{{ activity.user }}</strong>
+        <small> {{ activity.title }}</small>
+        <br> {{ activity.description }}
+      </p>
+    </div>
+    <small class="is-pulled-right"> {{ activity.time }}</small>
+  </div>
+  <hr>
+</article>

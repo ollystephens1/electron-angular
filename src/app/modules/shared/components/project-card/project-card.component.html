@@ -1,0 +1,11 @@
+<div class="tile is-ancestor">
+  <div class="tile is-parent">
+    <article [routerLink]="['/projects/bob']" class="tile is-child notification is-primary">
+      <div class="content">
+        <p class="title">{{ project.name }}</p>
+        <p class="subtitle">{{ project.client }}</p>
+        <p>{{ project.description }}</p>
+      </div>
+    </article>
+  </div>
+</div>

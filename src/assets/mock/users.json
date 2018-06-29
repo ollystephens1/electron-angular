@@ -1,0 +1,30 @@
+[
+  {
+    "firstname": "Oliver",
+    "lastname": "Stephens",
+    "username": "Olly123",
+    "level": 1,
+    "avatar": "olly.png"
+  },
+  {
+    "firstname": "Nico",
+    "lastname": "Wernli",
+    "username": "NicoWernli",
+    "level": 1,
+    "avatar": "nico.png"
+  },
+  {
+    "firstname": "Javi",
+    "lastname": "Rodriguez",
+    "username": "Javirln",
+    "level": 1,
+    "avatar": "javi.png"
+  },
+  {
+    "firstname": "Ignacio",
+    "lastname": "Pastor",
+    "username": "Ingaciopastor123",
+    "level": 1,
+    "avatar": "ignacio.png"
+  }
+]
