@@ -9,7 +9,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "electron": "ng build && electron .",
+    "electron": "electron .",
+    "electron-build": "ng build && electron .",
     "electron-aot": "ng build --prod && electron .",
     "precommit": "ng lint"
   },
