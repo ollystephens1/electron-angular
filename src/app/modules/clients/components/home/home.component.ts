@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   public clients$: Observable<any>;
+  public showAddComponent = false;
   constructor(private clientService: ClientService) {}
 
   ngOnInit(): void {
