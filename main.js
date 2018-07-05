@@ -5,8 +5,8 @@ let win;
 function createWindow() {
   // Create the browser window.
   win = new BrowserWindow({
-    width: 600,
-    height: 600,
+    width: 1000,
+    height: 800,
     backgroundColor: '#ffffff',
     icon: `${DIST_PATH}/assets/electron-app/logo.png`,
     webPreferences: {
@@ -14,11 +14,8 @@ function createWindow() {
     }
   });
 
-  win.webContents.openDevTools();
-
   win.loadURL(`${DIST_PATH}/electron-app/index.html`);
 
-  //// uncomment below to open the DevTools.
   // win.webContents.openDevTools()
 
   // Event when the window is closed.
