@@ -1,3 +1,4 @@
+import { Project } from './../../../shared/models/project';
 import { Observable } from 'rxjs';
 import { ProjectService } from './../../../shared/services/project.service';
 import { Component, OnInit } from '@angular/core';
@@ -8,11 +9,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  public projects$: Observable<any>;
+  public projects$: Observable<Project[]>;
+  public showAddComponent: boolean = false;
+  public ready: boolean = false;
 
   constructor(private projectService: ProjectService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.projects$ = this.projectService.getProjects();
+    this.projects$.subscribe((projects: Project[]) => (this.ready = true));
+  }
+
+  cancelAddProject() {
+    this.showAddComponent = false;
   }
 }

@@ -1,0 +1,30 @@
+<form #addProjectForm="ngForm" (ngSubmit)="save()">
+  <div class="field">
+    <label class="label">Project name</label>
+    <div class="control has-icons-left has-icons-right">
+      <input [(ngModel)]="project.name" #name="ngModel" name="name" class="input" type="text" placeholder="Project name" required>
+      <span class="icon is-small is-left">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="icon is-small is-right">
+        <i class="fa fa-check"></i>
+      </span>
+    </div>
+    <p *ngIf="name.invalid && (name.dirty || name.touched)" class="help is-danger">Please provide a Project name</p>
+  </div>
+
+  <div class="field">
+    <div class="control">
+      <textarea [(ngModel)]="project.description" name="description" class="textarea" type="text" placeholder="Project description"></textarea>
+    </div>
+  </div>
+
+  <div class="field is-grouped">
+    <div class="control">
+      <button [disabled]="!addProjectForm.valid" class="button is-link" type="submit">Add project</button>
+    </div>
+    <div class="control">
+      <button (click)="cancel()" class="button is-text">Cancel</button>
+    </div>
+  </div>
+</form>

@@ -4,14 +4,14 @@
       <div class="column">
         <h1 class="title">Recent activity</h1>
         <div class="box">
-          <spinner [show]="!(activities$ | async)?.length"></spinner>
           <activity-card *ngFor="let activity of activities$ | async" [activity]="activity"></activity-card>
         </div>
       </div>
       <div class="column">
         <h1 class="title">Recent projects</h1>
-        <spinner [show]="!(projects$ | async)?.length"></spinner>
+        <spinner [show]="!(projects$ | async)?.length && !projectsReady"></spinner>
         <project-card *ngFor="let project of projects$ | async" [project]="project"></project-card>
+        <blank-slate [show]="projectsReady && !(projects$ | async)?.length" [message]="'No projects found'" [icon]="'fa-search'"></blank-slate>
       </div>
     </div>
   </div>

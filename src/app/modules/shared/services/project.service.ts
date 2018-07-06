@@ -1,12 +1,37 @@
+import { ApiService } from './api.service';
+import { Project } from './../models/project';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable()
 export class ProjectService {
-  constructor(private http: HttpClient) {}
+  constructor(private apiService: ApiService) {}
 
-  getProjects(): Observable<any> {
-    return this.http.get('./assets/mock/projects.json');
+  getProjects(): Observable<Project[]> {
+    return this.apiService.request({ url: 'projects' });
+  }
+
+  addProject(project: Project): Observable<any> {
+    return this.apiService.request({
+      url: 'projects',
+      method: 'post',
+      body: project
+    });
+  }
+
+  getProject(id: string): Observable<Project> {
+    return this.apiService.request({ url: `project/${id}` });
+  }
+
+  updateProject(project: Project): Observable<Project> {
+    return this.apiService.request({
+      method: 'put',
+      url: 'projects',
+      body: project
+    });
+  }
+
+  delete(id: string): Observable<any> {
+    return this.apiService.request({ url: `projects/${id}`, method: 'delete' });
   }
 }

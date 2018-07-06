@@ -1,8 +1,20 @@
 <section class="section">
   <div class="container">
     <div class="column">
-      <h1 class="title">My projects</h1>
+      <h1 class="title"> {{ (projects$ | async)?.length }} {{ (projects$ | async)?.length === 1 ? 'Project' : 'Projects' }}
+        <button (click)="showAddComponent = !showAddComponent" class="button is-pulled-right is-primary">
+          New project
+          <i class="fa fa-tasks m-l-10"></i>
+        </button>
+      </h1>
+
+      <spinner [show]="!ready"></spinner>
+      <div *ngIf="showAddComponent" class="m-b-20">
+        <project-add (onCancel)="cancelAddProject()"></project-add>
+      </div>
+
       <project-card *ngFor="let project of projects$ | async" [project]="project"></project-card>
+      <blank-slate [show]="ready && !(projects$ | async)?.length" [message]="'No projects found'" [icon]="'fa-search'"></blank-slate>
     </div>
   </div>
 </section>

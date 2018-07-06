@@ -11,6 +11,7 @@ import { ActivityService } from './../../../shared/services/activity.service';
 export class HomeComponent implements OnInit {
   public projects$: Observable<any>;
   public activities$: Observable<any>;
+  public projectsReady: boolean = false;
 
   constructor(
     private projectService: ProjectService,
@@ -20,5 +21,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.projects$ = this.projectService.getProjects();
     this.activities$ = this.activityService.getActivities();
+
+    this.projects$.subscribe(response => (this.projectsReady = true));
   }
 }

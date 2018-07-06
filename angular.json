@@ -23,7 +23,8 @@
               "src/styles.css",
               "src/assets/styles/global.scss",
               "node_modules/bulma/css/bulma.css",
-              "node_modules/font-awesome/css/font-awesome.css"
+              "node_modules/font-awesome/css/font-awesome.css",
+              "node_modules/angular2-toaster/toaster.css"
             ],
             "scripts": []
           },
