@@ -1,0 +1,8 @@
+.content {
+  a.title {
+    text-decoration: none !important;
+    &:hover {
+      text-decoration: underline !important;
+    }
+  }
+}

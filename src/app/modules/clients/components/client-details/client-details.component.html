@@ -1,0 +1,37 @@
+<section class="section">
+  <div class="container">
+    <div *ngIf="client" class="column">
+      <form #clientDetailsForm="ngForm" (ngSubmit)="save()">
+        <div class="field">
+          <label class="label">Name</label>
+          <div class="control has-icons-left has-icons-right">
+            <input [(ngModel)]="client.name" #name="ngModel" name="name" class="input" type="text" placeholder="Client name" required>
+            <span class="icon is-small is-left">
+              <i class="fa fa-user"></i>
+            </span>
+            <span class="icon is-small is-right">
+              <i class="fa fa-check"></i>
+            </span>
+          </div>
+          <p *ngIf="name.invalid && (name.dirty || name.touched)" class="help is-danger">Please provide a Client name</p>
+        </div>
+
+        <div class="field">
+          <label class="label">Bio</label>
+          <div class="control">
+            <textarea [(ngModel)]="client.description" name="description" class="textarea" type="text" placeholder="Client bio"></textarea>
+          </div>
+        </div>
+
+        <div class="field is-grouped">
+          <div class="control">
+            <button [disabled]="!clientDetailsForm.valid" class="button is-link" type="submit">Save changes</button>
+          </div>
+          <div class="control">
+            <button (click)="delete()" class="button is-danger">Delete</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

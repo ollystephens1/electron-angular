@@ -1,11 +1,13 @@
-import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { ClientsRouter } from './clients.routing';
-import { HomeComponent } from './components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ClientsRouter } from './clients.routing';
+import { SharedModule } from './../shared/shared.module';
+import { HomeComponent } from './components/home/home.component';
 import { ClientAddComponent } from './components/client-add/client-add.component';
+import { ClientDetailsComponent } from './components/client-details/client-details.component';
+import { ClientResolver } from './resolvers/client.resolver';
 
 @NgModule({
   imports: [
@@ -15,6 +17,7 @@ import { ClientAddComponent } from './components/client-add/client-add.component
     HttpClientModule,
     FormsModule
   ],
-  declarations: [HomeComponent, ClientAddComponent]
+  declarations: [HomeComponent, ClientAddComponent, ClientDetailsComponent],
+  providers: [ClientResolver]
 })
 export class ClientsModule {}

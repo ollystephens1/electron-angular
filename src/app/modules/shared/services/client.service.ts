@@ -19,4 +19,16 @@ export class ClientService {
       body: client
     });
   }
+
+  getClient(id: string): Observable<Client> {
+    return this.apiService.request({ url: `clients/${id}` });
+  }
+
+  updateClient(client: Client): Observable<Client> {
+    return this.apiService.request({
+      method: 'put',
+      url: 'clients',
+      body: client
+    });
+  }
 }

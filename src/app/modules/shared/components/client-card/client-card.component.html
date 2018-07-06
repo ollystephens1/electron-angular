@@ -2,8 +2,8 @@
   <div class="tile is-parent">
     <article class="tile is-child notification is-primary">
       <div class="content">
-        <p class="title">{{ client.name }}</p>
-        <p>{{ client.description }}</p>
+        <a [routerLink]="['/clients', client._id]" class="title is-size-2">{{ client.name }}</a>
+        <p class="m-t-10">{{ client.description }}</p>
       </div>
     </article>
   </div>

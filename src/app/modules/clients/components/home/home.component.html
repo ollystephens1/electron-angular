@@ -1,19 +1,20 @@
 <section class="section">
   <div class="container">
     <div class="column">
-      <h1 class="title">Clients
+      <h1 class="title"> {{ (clients$ | async)?.length }} {{ (clients$ | async)?.length === 1 ? 'Client' : 'Clients' }}
         <button (click)="showAddComponent = !showAddComponent" class="button is-pulled-right is-primary">
           New client
           <i class="fa fa-user-plus m-l-10"></i>
         </button>
       </h1>
 
+      <spinner [show]="!ready"></spinner>
       <div *ngIf="showAddComponent" class="m-b-20">
         <client-add (onCancel)="cancelClientAdd()"></client-add>
       </div>
 
       <client-card *ngFor="let client of clients$ | async" [client]="client"></client-card>
-      <blank-slate [show]="ready" [message]="'No clients found'" [icon]="'fa-search'"></blank-slate>
+      <blank-slate [show]="ready && !(clients$ | async)?.length" [message]="'No clients found'" [icon]="'fa-search'"></blank-slate>
     </div>
   </div>
 </section>
