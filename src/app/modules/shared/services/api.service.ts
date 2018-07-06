@@ -25,14 +25,12 @@ export class ApiService {
   }
 
   private buildParams(query?): HttpParams {
-    if (!query) {
-      return new HttpParams();
-    }
-
-    return Object.keys(query).reduce((queryParams, key) => {
-      queryParams.set(key, query[key]);
-      return queryParams;
-    }, new HttpParams());
+    return !query
+      ? new HttpParams()
+      : Object.keys(query).reduce((queryParams, key) => {
+          queryParams.set(key, query[key]);
+          return queryParams;
+        }, new HttpParams());
   }
 
   private toaster() {
