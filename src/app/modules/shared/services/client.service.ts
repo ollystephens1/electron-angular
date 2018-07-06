@@ -31,4 +31,8 @@ export class ClientService {
       body: client
     });
   }
+
+  delete(id: string): Observable<any> {
+    return this.apiService.request({ url: `clients/${id}`, method: 'delete' });
+  }
 }

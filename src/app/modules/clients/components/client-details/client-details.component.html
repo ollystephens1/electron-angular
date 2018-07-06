@@ -28,10 +28,19 @@
             <button [disabled]="!clientDetailsForm.valid" class="button is-link" type="submit">Save changes</button>
           </div>
           <div class="control">
-            <button (click)="delete()" class="button is-danger">Delete</button>
+            <button (click)="toggleDeleteConfirm()" class="button is-danger">Delete</button>
           </div>
         </div>
       </form>
+
+      <div *ngIf="showDeleteConfirm" class="has-text-centered">
+        <hr>
+        <p class="m-b-10">Are you sure you want to delete
+          <b>{{ client.name }}</b>?
+        </p>
+        <button (click)="delete()" class="button is-danger m-r-5">Delete {{ client.name }}</button>
+        <button (click)="toggleDeleteConfirm()" class="button is-default">Cancel</button>
+      </div>
     </div>
   </div>
 </section>
