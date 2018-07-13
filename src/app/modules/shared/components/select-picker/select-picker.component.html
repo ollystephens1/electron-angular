@@ -1,0 +1,31 @@
+<div class="selectpicker">
+  <form style="width: 100%"
+        [ngClass]="{ 'open': isSearching }"
+        name="selectpickerForm">
+    <!-- <i *ngIf="isSearching" (click)="clearSearch($event)" class="fa fa-times text-muted pointer"></i> -->
+
+
+    <div class="control has-icons-left has-icons-right">
+      <input (keyup)="search( $event.target.value )"
+            [(ngModel)]="selectedItem"
+            name="selectpicker"
+            class="input"
+            autocomplete="off"
+            type="text"
+            placeholder="{{ labels.placeholder }}"/>
+      <span class="icon is-small is-left">
+        <i class="fa fa-search"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li *ngIf="isSearching && !hasItems"
+            class="dropdown-item">No results found
+        </li>
+        <li *ngFor="let item of items" [class.box]="box"
+            (click)="onChangeSelection( item )"
+            class="dropdown-item pointer">
+            <span *ngIf="!box">{{ item.label }}</span>
+        </li>
+      </ul>
+    </div>
+  </form>
+</div>

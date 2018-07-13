@@ -2,29 +2,57 @@
   <div class="field">
     <label class="label">Project name</label>
     <div class="control has-icons-left has-icons-right">
-      <input [(ngModel)]="project.name" #name="ngModel" name="name" class="input" type="text" placeholder="Project name" required>
+      <input [(ngModel)]="project.name"
+              #name="ngModel"
+              name="name"
+              class="input"
+              type="text"
+              placeholder="Project name"
+              required>
       <span class="icon is-small is-left">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="icon is-small is-right">
-        <i class="fa fa-check"></i>
+        <i class="fa fa-tasks"></i>
       </span>
     </div>
     <p *ngIf="name.invalid && (name.dirty || name.touched)" class="help is-danger">Please provide a Project name</p>
-  </div>
+  </div> <!-- Name -->
 
   <div class="field">
-    <div class="control">
-      <textarea [(ngModel)]="project.description" name="description" class="textarea" type="text" placeholder="Project description"></textarea>
+    <label class="label">Client</label>
+    <select-picker *ngIf="!project.client || changing"
+                   (onSelected)="setClient($event.value)"
+                   [fetchData]="searchClients()"
+                   [placeholder]="'Search for clients'"
+                   [noResults]="'No results found'">
+    </select-picker>
+    <div *ngIf="project.client">
+      <p>{{ project.client.name }} <button (click)="changing = !changing" class="button is-small is-right">Change client</button></p>
     </div>
-  </div>
+  </div> <!-- Client -->
+
+  <div class="field">
+    <label class="label">Description</label>
+    <div class="control">
+      <textarea [(ngModel)]="project.description"
+                name="description"
+                class="textarea"
+                type="text"
+                placeholder="Briefly describe this project">
+      </textarea>
+    </div>
+  </div> <!-- Description -->
 
   <div class="field is-grouped">
     <div class="control">
-      <button [disabled]="!addProjectForm.valid" class="button is-link" type="submit">Add project</button>
+      <button [disabled]="!addProjectForm.valid"
+              class="button is-link"
+              type="submit">Add project
+      </button>
     </div>
     <div class="control">
-      <button (click)="cancel()" class="button is-text">Cancel</button>
+      <button (click)="cancel()"
+              type="button"
+              class="button is-text">Cancel
+      </button>
     </div>
   </div>
 </form>

@@ -10,7 +10,7 @@
 
       <spinner [show]="!ready"></spinner>
       <div *ngIf="showAddComponent" class="m-b-20">
-        <project-add (onCancel)="cancelAddProject()"></project-add>
+        <project-add (onCancel)="cancelAddProject()" (onAdded)="onProjectAdded()"></project-add>
       </div>
 
       <project-card *ngFor="let project of projects$ | async" [project]="project"></project-card>

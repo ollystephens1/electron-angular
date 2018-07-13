@@ -10,17 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   public projects$: Observable<Project[]>;
-  public showAddComponent: boolean = false;
-  public ready: boolean = false;
+  public showAddComponent = false;
+  public ready = false;
 
   constructor(private projectService: ProjectService) {}
 
   ngOnInit(): void {
+    this.getProjects();
+  }
+
+  getProjects(): void {
     this.projects$ = this.projectService.getProjects();
     this.projects$.subscribe((projects: Project[]) => (this.ready = true));
   }
 
-  cancelAddProject() {
+  onProjectAdded(): void {
+    this.getProjects();
+  }
+
+  cancelAddProject(): void {
     this.showAddComponent = false;
   }
 }
