@@ -29,3 +29,12 @@ $sides: (top, bottom, left, right); // Leave this variable alone
     }
   }
 }
+
+// Tabs show/hide
+.tab-contents {
+  display: none;
+
+  &.in {
+    display: block;
+  }
+}

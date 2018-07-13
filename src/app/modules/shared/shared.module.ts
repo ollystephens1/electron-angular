@@ -14,6 +14,8 @@ import { ClientCardComponent } from './components/client-card/client-card.compon
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { BlankSlateComponent } from './components/blank-slate/blank-slate.component';
 import { SelectPickerComponent } from './components/select-picker/select-picker.component';
+import { RequirementAddComponent } from './components/requirement-add/requirement-add.component';
+import { RequirementCardComponent } from './components/requirement-card/requirement-card.component';
 
 @NgModule({
   imports: [CommonModule, RouterModule, FormsModule],
@@ -23,7 +25,9 @@ import { SelectPickerComponent } from './components/select-picker/select-picker.
     ClientCardComponent,
     SpinnerComponent,
     BlankSlateComponent,
-    SelectPickerComponent
+    SelectPickerComponent,
+    RequirementAddComponent,
+    RequirementCardComponent
   ],
   exports: [
     ActivityCardComponent,
@@ -31,7 +35,9 @@ import { SelectPickerComponent } from './components/select-picker/select-picker.
     ClientCardComponent,
     SpinnerComponent,
     BlankSlateComponent,
-    SelectPickerComponent
+    SelectPickerComponent,
+    RequirementAddComponent,
+    RequirementCardComponent
   ],
   providers: [
     ProjectService,

@@ -1,6 +1,7 @@
-import { HomeComponent } from './components/home/home.component';
 import { RouterModule } from '@angular/router';
+import { HomeComponent } from './components/home/home.component';
 import { ProjectDetailsComponent } from './components/project-details/project-details.component';
+import { ProjectResolver } from './resolvers/project.resolver';
 
 const ROUTES = [
   {
@@ -9,7 +10,10 @@ const ROUTES = [
   },
   {
     path: ':id',
-    component: ProjectDetailsComponent
+    component: ProjectDetailsComponent,
+    resolve: {
+      project: ProjectResolver
+    }
   }
 ];
 

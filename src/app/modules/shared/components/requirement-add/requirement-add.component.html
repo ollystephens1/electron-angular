@@ -1,0 +1,44 @@
+<form #addRequirementForm="ngForm" (ngSubmit)="save()">
+    <div class="field">
+      <label class="label">Requirement title</label>
+      <div class="control has-icons-left has-icons-right">
+        <input [(ngModel)]="requirement.title"
+                #title="ngModel"
+                name="title"
+                class="input"
+                type="text"
+                placeholder="Requirement title"
+                required>
+        <span class="icon is-small is-left">
+          <i class="fa fa-check-square-o"></i>
+        </span>
+      </div>
+      <p *ngIf="title.invalid && (title.dirty || title.touched)" class="help is-danger">Please provide a Requirement title</p>
+    </div> <!-- Name -->
+
+    <div class="field">
+      <label class="label">Description</label>
+      <div class="control">
+        <textarea [(ngModel)]="requirement.description"
+                  name="description"
+                  class="textarea"
+                  type="text"
+                  placeholder="Briefly describe this requirement"></textarea>
+      </div>
+    </div> <!-- Description -->
+
+    <div class="field is-grouped">
+      <div class="control">
+        <button [disabled]="!addRequirementForm.valid"
+                class="button is-link"
+                type="submit">Add requirement
+        </button>
+      </div>
+      <div class="control">
+        <button (click)="cancel()"
+                type="button"
+                class="button is-text">Cancel
+        </button>
+      </div>
+    </div>
+  </form>

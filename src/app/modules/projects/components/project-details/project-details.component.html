@@ -1,3 +1,122 @@
-<p>
-  project-details works!
-</p>
+<section class="section">
+  <div class="columns is-fullheight">
+    <aside class="column is-2 is-narrow-mobile is-fullheight section is-hidden-mobile">
+      <p class="menu-label is-hidden-touch">Manage Project</p>
+      <ul class="menu-list">
+        <li>
+          <a id="tabRequirements" class="tab-toggle">
+            <span class="icon"><i class="fa fa-tasks"></i></span> Requirements
+          </a>
+          <a id="tabOverview" class="tab-toggle">
+            <span class="icon"><i class="fa fa-home"></i></span> Overview
+          </a>
+          <a id="tabDelete" class="tab-toggle">
+            <span class="icon"><i class="fa fa-trash"></i></span> Delete project
+          </a>
+        </li>
+      </ul>
+    </aside>
+    <div *ngIf="project" class="container column is-10">
+      <div class="tab-contents in" data-tab="tabRequirements">
+        <h2 class="is-size-2">Project requirements
+          <button (click)="showAddRequirement = !showAddRequirement" class="button is-pulled-right is-primary">
+            New requirement
+            <i class="fa fa-plus m-l-10"></i>
+          </button>
+        </h2>
+        <hr>
+
+        <requirement-add
+          *ngIf="showAddRequirement"
+          [project]="project"
+          (onCancel)="showAddRequirement = false"
+          (onAdded)="onRequirementAdded($event)">
+        </requirement-add>
+        <requirement-card
+          *ngFor="let requirement of project.requirements"
+          [requirement]="requirement">
+        </requirement-card>
+        <blank-slate
+          [show]="ready && (!project.requirements || !project.requirements.length)"
+          [message]="'No projects found'"
+          [icon]="'fa-search'">
+        </blank-slate>
+      </div>
+
+      <div class="tab-contents" data-tab="tabOverview">
+        <h2 class="is-size-2">Project overview</h2>
+        <hr>
+        <form #projectDetailsForm="ngForm" (ngSubmit)="save()">
+          <div class="field">
+            <label class="label">Project name</label>
+            <div class="control has-icons-left has-icons-right">
+              <input [(ngModel)]="project.name"
+                      #name="ngModel"
+                      name="name"
+                      class="input"
+                      type="text"
+                      placeholder="Project name"
+                      required>
+              <span class="icon is-small is-left">
+                <i class="fa fa-user"></i>
+              </span>
+              <span class="icon is-small is-right">
+                <i class="fa fa-check"></i>
+              </span>
+            </div>
+            <p *ngIf="name.invalid && (name.dirty || name.touched)" class="help is-danger">Please provide a Project name</p>
+          </div>
+
+          <div class="field">
+            <label class="label">Client</label>
+            <select-picker *ngIf="!project.client || changing"
+                          (onSelected)="setClient($event.value)"
+                          [fetchData]="searchClients()"
+                          [placeholder]="'Search for clients'"
+                          [noResults]="'No results found'">
+            </select-picker>
+            <div *ngIf="project.client" class="m-t-5">
+              <p><b>{{ project.client.name }}</b> <button (click)="changing = !changing" class="button is-small is-right m-l-5" type="button">Change client</button></p>
+            </div>
+          </div> <!-- Client -->
+
+          <div class="field">
+            <label class="label">Description</label>
+            <div class="control">
+              <textarea [(ngModel)]="project.description"
+                        name="description"
+                        class="textarea"
+                        type="text"
+                        placeholder="Project description">
+              </textarea>
+            </div>
+          </div>
+
+          <div class="field is-grouped">
+            <div class="control">
+              <button [disabled]="!projectDetailsForm.valid"
+                      class="button is-link"
+                      type="submit">Save changes
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="tab-contents" data-tab="tabDelete">
+        <h2 class="is-size-2">Delete project</h2>
+        <hr>
+        <div class="has-text-centered">
+          <p class="m-b-10">Are you sure you want to delete
+            <b>{{ project.name }}</b>?
+          </p>
+          <button (click)="delete()"
+                  class="button is-danger m-r-5"
+                  type="button">Delete {{ project.name }}
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

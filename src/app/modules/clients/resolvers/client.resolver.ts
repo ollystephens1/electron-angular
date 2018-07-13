@@ -11,10 +11,8 @@ import { Client } from './../../shared/models/client';
 @Injectable()
 export class ClientResolver implements Resolve<Client> {
   constructor(private clientService: ClientService) {}
-  resolve(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): Observable<Client> {
+
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Client> {
     return this.clientService.getClient(route.params['id']);
   }
 }

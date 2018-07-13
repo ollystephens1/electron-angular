@@ -7,6 +7,7 @@ import { HomeComponent } from './components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProjectDetailsComponent } from './components/project-details/project-details.component';
 import { ProjectAddComponent } from './components/project-add/project-add.component';
+import { ProjectResolver } from './resolvers/project.resolver';
 
 @NgModule({
   imports: [
@@ -16,6 +17,11 @@ import { ProjectAddComponent } from './components/project-add/project-add.compon
     HttpClientModule,
     FormsModule
   ],
-  declarations: [HomeComponent, ProjectDetailsComponent, ProjectAddComponent]
+  declarations: [
+    HomeComponent,
+    ProjectDetailsComponent,
+    ProjectAddComponent
+  ],
+  providers: [ProjectResolver]
 })
 export class ProjectsModule {}

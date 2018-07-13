@@ -33,7 +33,7 @@ export class ClientDetailsComponent implements OnInit {
     });
   }
 
-  toggleDeleteConfirm() {
+  toggleDeleteConfirm(): void {
     this.showDeleteConfirm = !this.showDeleteConfirm;
   }
 }

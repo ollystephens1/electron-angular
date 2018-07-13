@@ -1,11 +1,13 @@
 <div class="tile is-ancestor">
   <div class="tile is-parent">
-    <article [routerLink]="['/projects/bob']" class="tile is-child notification is-primary">
+    <a [routerLink]="['/projects', project._id]" class="tile is-child notification is-primary">
       <div class="content">
         <p class="title">{{ project.name }}</p>
-        <p class="subtitle">{{ project.client }}</p>
+        <p *ngIf="project.client" class="subtitle">
+          <i class="fa fa-user m-r-5"></i> {{ project.client?.name }}
+        </p>
         <p>{{ project.description }}</p>
       </div>
-    </article>
+    </a>
   </div>
 </div>

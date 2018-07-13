@@ -20,14 +20,14 @@ export class ProjectService {
   }
 
   getProject(id: string): Observable<Project> {
-    return this.apiService.request({ url: `project/${id}` });
+    return this.apiService.request({ url: `projects/${id}` });
   }
 
-  updateProject(project: Project): Observable<Project> {
+  updateProject(body: Project): Observable<Project> {
     return this.apiService.request({
       method: 'put',
       url: 'projects',
-      body: project
+      body
     });
   }
 

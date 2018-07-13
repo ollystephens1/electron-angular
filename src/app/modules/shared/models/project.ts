@@ -1,3 +1,4 @@
+import { Requirement } from './requirement';
 import { User } from './user';
 import { Client } from './client';
 
@@ -6,6 +7,7 @@ export class Project {
   name: string;
   description: string;
   client: Client;
+  requirements: Requirement[]
   users: User[];
   createdAt: Date;
   updatedAt: Date;
@@ -22,6 +24,7 @@ export class Project {
       this.updatedAt = props.updatedAt || new Date();
       this.createdBy = props.createdBy;
       this.updatedBy = props.updatedBy;
+      this.requirements = props.requirements || [];
     }
   }
 }

@@ -24,6 +24,7 @@ export class ProjectAddComponent {
   save(): void {
     this.projectsService.addProject(this.project).subscribe(response => {
       this.onAdded.emit();
+      this.cancel();
     });
   }
 
