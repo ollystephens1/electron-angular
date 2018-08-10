@@ -32,14 +32,14 @@ export class LoginComponent implements OnInit {
   public onLogin(): void {
     this.authService.login(this.loginForm.value)
       .subscribe(response => {
-        console.log(response);
+        // console.log(response);
       });
   }
 
   public onRegister(): void {
     this.authService.register(this.registrationForm.value)
       .subscribe(response => {
-        console.log(response);
+        // console.log(response);
       });
   }
 
