@@ -18,4 +18,12 @@ export class AuthService {
       body: { email, password }
     });
   }
+
+  register({ name = '', email = '', password = '', phone = '' } = {}): Observable<any> {
+    return this.apiService.request({
+      method: 'post',
+      url: 'users',
+      body: { name, email, password, phone }
+    });
+  }
 }

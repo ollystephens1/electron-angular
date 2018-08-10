@@ -8,9 +8,18 @@ import { AuthService } from './../../auth/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  public readonly views = ['login', 'register'];
+  public view = 'login';
 
   public loginForm = new FormGroup({
     email: new FormControl(''),
+    password: new FormControl('')
+  });
+
+  public registrationForm = new FormGroup({
+    email: new FormControl(''),
+    name: new FormControl(''),
+    phone: new FormControl(''),
     password: new FormControl('')
   });
 
@@ -20,10 +29,21 @@ export class LoginComponent implements OnInit {
 
   }
 
-  onSubmit() {
+  public onLogin(): void {
     this.authService.login(this.loginForm.value)
       .subscribe(response => {
         console.log(response);
       });
+  }
+
+  public onRegister(): void {
+    this.authService.register(this.registrationForm.value)
+      .subscribe(response => {
+        console.log(response);
+      });
+  }
+
+  public setView(view: string): void {
+    this.view = view;
   }
 }
