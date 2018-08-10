@@ -18,7 +18,7 @@ export class ApiService {
     const payload = !isGet ? body : this.buildParams(query);
 
     url += isGet && !isEmpty(payload) ? payload : '';
-    return this.http[method](`${this.prefix}/${url}`, payload).pipe(map((res: any) => { 
+    return this.http[method](`${this.prefix}/${url}`, payload).pipe(map((res: any) => {
       if (res.message && res.message.length) {
         this.toaster(res.message);
       }

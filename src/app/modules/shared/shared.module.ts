@@ -8,7 +8,6 @@ import { RequirementService } from './services/requirement.service';
 import { ActivityService } from './services/activity.service';
 import { UserService } from './services/user.service';
 import { ClientService } from './services/client.service';
-import { ApiService } from './services/api.service';
 import { ProjectCardComponent } from './components/project-card/project-card.component';
 import { ClientCardComponent } from './components/client-card/client-card.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
@@ -44,8 +43,7 @@ import { RequirementCardComponent } from './components/requirement-card/requirem
     ClientService,
     UserService,
     ActivityService,
-    RequirementService,
-    ApiService
+    RequirementService
   ]
 })
 export class SharedModule {}

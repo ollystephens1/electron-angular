@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProjectsRouter } from './projects.routing';
 import { HomeComponent } from './components/home/home.component';
-import { HttpClientModule } from '@angular/common/http';
 import { ProjectDetailsComponent } from './components/project-details/project-details.component';
 import { ProjectAddComponent } from './components/project-add/project-add.component';
 import { ProjectResolver } from './resolvers/project.resolver';
@@ -14,7 +13,6 @@ import { ProjectResolver } from './resolvers/project.resolver';
     CommonModule,
     ProjectsRouter,
     SharedModule,
-    HttpClientModule,
     FormsModule
   ],
   declarations: [
@@ -22,6 +20,8 @@ import { ProjectResolver } from './resolvers/project.resolver';
     ProjectDetailsComponent,
     ProjectAddComponent
   ],
-  providers: [ProjectResolver]
+  providers: [
+    ProjectResolver
+  ]
 })
 export class ProjectsModule {}

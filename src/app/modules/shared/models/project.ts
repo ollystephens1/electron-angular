@@ -7,7 +7,7 @@ export class Project {
   name: string;
   description: string;
   client: Client;
-  requirements: Requirement[]
+  requirements: Requirement[];
   users: User[];
   createdAt: Date;
   updatedAt: Date;
