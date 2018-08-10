@@ -36,6 +36,16 @@ export class AuthService {
     this.router.navigate(['/login']);
   }
 
+  getCurrentUser() {
+    if (this.isLoggedIn) {
+      const store = JSON.parse(localStorage.getItem('currentUser'));
+      if (store) {
+        return store.user;
+      }
+    }
+    return false;
+  }
+
   register({ name = '', email = '', password = '', phone = '' } = {}): Observable<any> {
     return this.apiService.request({
       method: 'post',

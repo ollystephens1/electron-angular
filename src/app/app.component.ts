@@ -1,3 +1,4 @@
+import { User } from './modules/shared/models/user';
 import { AuthService } from './auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -9,10 +10,19 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   public title = 'app';
   public showNav = true;
+  public currentUser: any;
 
   constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
-    this.showNav = this.authService.isLoggedIn();
+    this.currentUser = this.authService.getCurrentUser();
+  }
+
+  public logout(): void {
+    this.authService.logout();
+  }
+
+  isLoggedIn() {
+    return this.authService.isLoggedIn();
   }
 }
